@@ -1,5 +1,5 @@
 const express = require('express');
-const folderController = require('../controllers/folderController');
+const folderController = require('../controllers/folderControllers');
 const ensureAuthenticated = require('../middleware/auth');
 const router = express.Router();
 

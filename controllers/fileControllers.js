@@ -5,12 +5,12 @@ const fs = require('fs');
 
 exports.uploadFile = async (req, res) => {
   const { folderId } = req.body;
-  if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
+  if (!req.file || !req.file.path) return res.status(400).json({ error: 'No file uploaded' });
   try {
     const file = await prisma.file.create({
       data: {
-        filename: req.file.filename,
-        path: req.file.path,
+        filename: req.file.originalname,
+        path: req.file.path, // URL dari Cloudinary
         userId: req.user.id,
         folderId: folderId ? Number(folderId) : null,
       }

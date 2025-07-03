@@ -1,13 +1,10 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const fileController = require('../controllers/fileController');
+const fileController = require('../controllers/fileControllers');
+const upload = require('../middleware/multerCloudinary'); // Use multer with Cloudinary
 const ensureAuthenticated = require('../middleware/auth');
 
-const upload = multer({
-  dest: path.join(__dirname, '../../uploads'),
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
-});
 
 const router = express.Router();
 
