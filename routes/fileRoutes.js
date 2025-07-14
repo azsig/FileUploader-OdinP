@@ -8,7 +8,7 @@ const ensureAuthenticated = require('../middleware/auth');
 
 const router = express.Router();
 
-router.use(ensureAuthenticated);
+//router.use(ensureAuthenticated);
 
 router.post('/upload', upload.single('file'), fileController.uploadFile);
 router.get('/:id', fileController.getFileDetails);

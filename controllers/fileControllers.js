@@ -11,7 +11,7 @@ exports.uploadFile = async (req, res) => {
       data: {
         filename: req.file.originalname,
         path: req.file.path, // URL dari Cloudinary
-        userId: req.user.id,
+        userId: 1,
         folderId: folderId ? Number(folderId) : null,
       }
     });
